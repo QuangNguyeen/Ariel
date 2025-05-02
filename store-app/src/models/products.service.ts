@@ -4,7 +4,7 @@ import {Repository} from "typeorm";
 import {Product} from "./product.entity";
 
 @Injectable()
-export class ProductService {
+export class ProductsService {
     constructor(
         @InjectRepository(Product)
         private productsRepository: Repository<Product>,
@@ -14,6 +14,12 @@ export class ProductService {
     }
     findOne(id: string): Promise<Product> {
         // @ts-ignore
-        return this.productsRepository.findOne(id);
+        return this.productsRepository.findOneBy({ id });
+    }
+    createOrUpdate(product: Product): Promise<Product>{
+        return this.productsRepository.save(product);
+    }
+    async remove(id: string): Promise<void>{
+        await this.productsRepository.delete(id);
     }
 }

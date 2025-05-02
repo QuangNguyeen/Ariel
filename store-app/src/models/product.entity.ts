@@ -12,4 +12,34 @@ export class Product {
     image: string;
     @Column()
     price: number;
+    getId(): number{
+        return this.id;
+    }
+    setId(id: number){
+        this.id = id;
+    }
+    getName(): string {
+        return this.name
+    }
+    setName(name: string){
+        this.name = name;
+    }
+    getDescription(): string {
+        return this.description;
+    }
+    setDescription(description: string){
+        this.description = description;
+    }
+    getPrice(): number{
+        return this.price;
+    }
+    setPrice(price: number){
+        return this.price = price;
+    }
+    getImage(): string {
+        return this.image;
+    }
+    setImage(image: string) {
+        this.image = image;
+    }
 }

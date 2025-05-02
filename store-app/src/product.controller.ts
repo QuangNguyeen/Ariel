@@ -1,47 +1,32 @@
-import {Controller, Get, Render, Param} from "@nestjs/common";
+import {Controller, Get, Render, Param, Res} from "@nestjs/common";
+import {ProductsService} from "./models/products.service";
 
 @Controller('/products')
 export class ProductController{
-    static products = [
-        {
-            id: '1',
-            name: 'TV', description: 'Best tv', image: 'game.png', price: '100',
-        },
-        {
-            id: '2',
-            name: 'iPhone', description: 'Best Iphone', image: 'safe.png', price: '200',
-        },
-        {
-            id: '3',
-            name: 'ChromeCast', description: 'Best ChromeCast', image: 'submarine.png', price: '500',
-        },
-        {
-            id: '4',
-            name: 'Glasses', description: 'Best Glasses', image: 'game.png', price: '900',
-        }
-    ];
+    constructor(private readonly productsService: ProductsService) {
+    }
     @Get('/')
     @Render('products/index')
-    index(){
+    async index(){
         const viewData = [];
         viewData['title'] = 'Product - Ariel Store';
         viewData['subtitle'] = 'List of products';
-        viewData['products'] = ProductController.products;
+        viewData['products'] = await this.productsService.findAll()
         return {
             viewData: viewData
         };
     }
 
-    @Get(':id')
-    @Render('products/show')
-    show(@Param() params){
-        const product = ProductController.products[params.id - 1];
+    @Get('/:id')
+    async show(@Param() params, @Res() response) {
+        const product = await this.productsService.findOne(params.id);
+        if (product === undefined) {
+            return response.redirect('/products');
+        }
         const viewData = [];
-        viewData['title'] = product.name + '- Ariel Store';
-        viewData['subtitle'] = product.name + '- Product Information';
+        viewData['title'] = product.getName() + ' - Online Store';
+        viewData['subtitle'] = product.getName() + ' - Product Information';
         viewData['product'] = product;
-        return {
-            viewData: viewData
-        };
+        return response.render('products/show', { viewData: viewData });
     }
 }
