@@ -30,6 +30,13 @@ async function bootstrap() {
       }
     next();
   })
+    app.use('/admin', (req, res, next) => {
+      if (req.session?.user?.role === 'admin') {
+        next();
+      } else {
+        res.redirect('/');
+      }
+    });
   await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();
