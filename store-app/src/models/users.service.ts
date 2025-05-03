@@ -12,6 +12,11 @@ export class UsersService{
     ) {}
 
     async createUserOrUpdate(user: User): Promise<User> {
+        const existingUser = await this.usersRepository.findOne({ where: { email: user.getEmail() } });
+
+        if (existingUser) {
+            throw new UnauthorizedException('Email already exists');
+        }
         const hash = await bcrypt.hash(user.getPassword(), 10);
         user.setPassword(hash);
         return this.usersRepository.save(user);

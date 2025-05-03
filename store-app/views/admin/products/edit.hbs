@@ -2,6 +2,9 @@
     <div class="card mb-4"> <div class="card-header">
         Edit Product </div>
         <div class="card-body">
+            {{#if flashErrors}} {{#each flashErrors}}
+                <p class="alert alert-danger">{{this}}</p> {{/each}}
+            {{/if}}
             {{#with viewData.product}}
                 <form method="POST" action="/admin/products/{{getId}}/update" enctype="multipart/form-data">
                     <div class="row">
@@ -29,7 +32,8 @@
                         </div> </div>
                     <div class="mb-3">
                         <label class="form-label">Description</label>
-                        <textarea class="form-control" name="description" rows="3" required>{{getDescription}}</textarea> </div>
+                        <textarea class="form-control" name="description" rows="3" required>{{getDescription}}</textarea>
+                    </div>
                     <button type="submit" class="btn btn-primary">Edit</button>
                 </form>
             {{/with}} </div>
