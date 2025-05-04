@@ -1,4 +1,5 @@
-import {Entity, Column, PrimaryGeneratedColumn} from "typeorm";
+import {Entity, Column, PrimaryGeneratedColumn, OneToMany} from "typeorm";
+import {Item} from "./item.entity";
 
 @Entity()
 export class Product {
@@ -12,6 +13,8 @@ export class Product {
     image: string;
     @Column()
     price: number;
+
+    @OneToMany(() => Item, (item) => item.product) items: Item[];
     getId(): number{
         return this.id;
     }
@@ -38,6 +41,12 @@ export class Product {
     }
     getImage(): string {
         return this.image;
+    }
+    getItems(): Item[] {
+        return this.items;
+    }
+    setItems(items: Item[]) {
+        this.items = items;
     }
     setImage(image: string) {
         this.image = image;

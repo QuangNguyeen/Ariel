@@ -36,5 +36,16 @@ export class UsersService{
 
         return user;
     }
+    findOne(id: string): Promise<User> {
+        // @ts-ignore
+        return this.usersRepository.findOne({
+            // @ts-ignore
+            where: { id },
+        });
+    }
+
+    updateBalance(id: number, balance: number){
+        return this.usersRepository.update(id,{balance: balance});
+    }
 
 }
