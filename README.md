@@ -49,7 +49,7 @@ store-app/
 ### 1. Clone & Install
 ```bash
 git clone https://github.com/QuangNguyeen/Ariel.git
-cd store-app
+cd ariel-app
 npm install
 ```
 ### 2. Configure Environment
