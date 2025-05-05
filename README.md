@@ -5,7 +5,7 @@ A simple e-commerce application (MVC server-side rendering)
 [![NestJS](https://img.shields.io/badge/nestjs-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white)](https://nestjs.com/)
 [![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![TypeORM](https://img.shields.io/badge/typeorm-%23167BFF.svg?style=for-the-badge&logo=typeorm&logoColor=white)](https://typeorm.io/)
-[![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
 [![Handlebars.js](https://img.shields.io/badge/handlebars.js-%23f0772b.svg?style=for-the-badge&logo=handlebars.js&logoColor=white)](https://handlebarsjs.com/)
 
 ---
