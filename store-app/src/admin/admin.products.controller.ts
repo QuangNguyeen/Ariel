@@ -1,6 +1,6 @@
 import {Controller, Get, Render, Post, Body, Redirect, UseInterceptors, UploadedFile, Param, Req, Res} from "@nestjs/common";
-import {ProductsService} from "../models/products.service";
-import {Product} from "../models/product.entity";
+import {ProductsService} from "../models/product/products.service";
+import {Product} from "../models/product/product.entity";
 import {FileInterceptor} from "@nestjs/platform-express";
 import {ProductValidator} from "../validators/product.validator";
 import * as fs from 'fs';

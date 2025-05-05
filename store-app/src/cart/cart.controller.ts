@@ -1,12 +1,12 @@
 import { Controller, Get, Render, Req, Res, Redirect, Param, Body, Post } from '@nestjs/common';
 
-import { ProductsService } from '../models/products.service';
-import {OrdersService} from "../models/orders.service";
-import {UsersService} from "../models/users.service";
+import { ProductsService } from '../models/product/products.service';
+import {OrdersService} from "../models/order/orders.service";
+import {UsersService} from "../models/user/users.service";
 
-import {Product} from '../models/product.entity';
-import {Order} from "../models/order.entity";
-import {Item} from "../models/item.entity";
+import {Product} from '../models/product/product.entity';
+import {Order} from "../models/order/order.entity";
+import {Item} from "../models/item/item.entity";
 
 
 @Controller('/cart')

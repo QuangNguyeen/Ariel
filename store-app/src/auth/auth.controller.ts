@@ -1,6 +1,6 @@
 import {Controller, Get, Render, Post, Redirect, Body, Req, Res, UnauthorizedException} from "@nestjs/common";
-import {User} from "../models/user.entity";
-import {UsersService} from "../models/users.service";
+import {User} from "../models/user/user.entity";
+import {UsersService} from "../models/user/users.service";
 import {UserValidator} from "../validators/user.validator";
 
 @Controller('/auth')

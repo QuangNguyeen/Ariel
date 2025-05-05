@@ -1,6 +1,6 @@
 import {Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, CreateDateColumn} from "typeorm";
-import {User} from "./user.entity";
-import {Item} from "./item.entity";
+import {User} from "../user/user.entity";
+import {Item} from "../item/item.entity";
 
 @Entity()
 export class Order {
@@ -33,8 +33,8 @@ export class Order {
         this.total = total;
     }
 
-    getDate(): Date {
-        return this.date;
+    getDate(): string {
+        return this.date.toISOString().split('T')[0];
     }
 
     setDate(date: Date){
