@@ -76,4 +76,3 @@ npm run start:dev
 - Cart functionality
 - Handlebars view rendering
 - Modular architecture with TypeORM entities
-
